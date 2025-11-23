@@ -15,6 +15,3 @@ jobs:
         contents: write
     needs: build
     uses: lumentae/actions/.github/workflows/release.yml@main
-    with:
-      commit-message: ${{ github.event.head_commit.message }}
-    
