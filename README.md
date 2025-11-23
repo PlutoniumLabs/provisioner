@@ -1,7 +1,8 @@
 # Provisioner
 **Provisioner** is a C++ command-line tool for setting up and managing **Minecraft servers**
 
-It makes creating and configuring servers fast and easy!
+It makes creating and configuring servers fast and easy!  
+It's similar to [packwiz](https://github.com/packwiz/packwiz), but focused on server management.
 
 ## Features
 

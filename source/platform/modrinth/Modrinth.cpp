@@ -11,23 +11,6 @@
 
 namespace provisioner::platform::modrinth
 {
-    void Modrinth::Download(const std::string& id, const std::string& version)
-    {
-        const std::filesystem::path modsPath = "mods";
-        if (!std::filesystem::exists(modsPath))
-            std::filesystem::create_directory(modsPath);
-
-        const auto url = "https://api.modrinth.com/v2/project/" + id + "/version/" + version;
-        const auto body = utils::FetchUrl(url);
-
-        nlohmann::json file = nlohmann::json::parse(body)[0]["files"][0];
-        const std::string download_url = file["download_url"];
-        const std::string filename = file["filename"];
-
-        spdlog::info("Downloading {} from Modrinth", filename);
-        utils::DownloadFile(download_url, modsPath / filename);
-    }
-
     project::mods::ModData Modrinth::GetModData(const std::string& id, const std::string& version)
     {
         const auto modUrl = "https://api.modrinth.com/v2/project/" + id;

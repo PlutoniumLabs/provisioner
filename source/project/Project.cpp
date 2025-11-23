@@ -5,6 +5,7 @@
 #include "loader/Fabric.h"
 #include "loader/Neoforge.h"
 #include "platform/modrinth/ModrinthIndexData.h"
+#include "platform/curseforge/CurseforgeManifestData.h"
 #include "mods/Mod.h"
 #include "utils/File.h"
 #include "utils/String.h"
@@ -96,11 +97,11 @@ namespace provisioner::project
         spdlog::info("Compiled project to {}", path.string());
     }
 
-    void Project::Export(const std::string& type, const std::filesystem::path& path) const
+    void Project::Export(const std::string& type, const std::filesystem::path& pPath) const
     {
+        std::filesystem::path path = pPath;
         const auto tempPath = std::filesystem::temp_directory_path() / "provisioner_temp";
         Compile(tempPath, true);
-
         if (type == "mrpack")
         {
             if (std::filesystem::exists(path))
@@ -167,7 +168,6 @@ namespace provisioner::project
                         zipPath.pop_back();
 
                     spdlog::info("Adding {} as {}", file.string(), zipPath);
-
                     if (!zip.addFile(zipPath, file.string()))
                     {
                         std::filesystem::remove_all(tempPath);
@@ -204,6 +204,79 @@ namespace provisioner::project
                 {
                     std::filesystem::remove_all(tempPath);
                     throw std::runtime_error("Failed to add " + file.string());
+                }
+            }
+
+            zip.close();
+            spdlog::info("Exported project to {}", path.string());
+            std::filesystem::remove_all(tempPath);
+            return;
+        }
+        if (type == "curseforge")
+        {
+            path = path.replace_extension(std::filesystem::path{".zip"});
+            if (std::filesystem::exists(path))
+                std::filesystem::remove(path);
+
+            libzippp::ZipArchive zip(path.string());
+            if (!zip.open(libzippp::ZipArchive::Write))
+            {
+                std::filesystem::remove_all(tempPath);
+                throw std::runtime_error("Failed to open zip file");
+            }
+
+            auto overridesPath = std::filesystem::path("overrides");
+            platform::curseforge::CurseforgeManifestData manifestData;
+            manifestData.name = mData.name;
+
+            for (const auto& file : utils::GetFilesByExtension(std::filesystem::current_path() / "mods", "pm"))
+            {
+                std::string fileContent = utils::ReadFile(file);
+                mods::ModData modData = nlohmann::json::parse(fileContent);
+
+                auto modFile = modData.slug + ".jar";
+                if (auto modPath = overridesPath / "mods" / modFile; !zip.addFile(modPath.generic_string(), ".cache/" + modFile))
+                {
+                    std::filesystem::remove_all(tempPath);
+                    throw std::runtime_error("Failed to add " + modData.slug);
+                }
+            }
+
+            manifestData.minecraft.version = mData.minecraft.version;
+
+            platform::curseforge::CurseforgeManifestModLoader loaderData;
+            loaderData.id = mData.minecraft.type + "-" + mData.minecraft.loaderVersion;
+            loaderData.primary = true;
+
+            manifestData.minecraft.modLoaders.emplace_back(loaderData);
+            manifestData.version = mData.version;
+            manifestData.author = "provisioner";
+
+            std::string content = nlohmann::json(manifestData).dump(4) + "\n";
+            if (!zip.addData("manifest.json", content.c_str(), content.size()))
+            {
+                std::filesystem::remove_all(tempPath);
+                throw std::runtime_error("Failed to add manifest.json");
+            }
+
+            for (const auto& include : mData.includes)
+            {
+                for (const auto& file : utils::GetFilesByExtension(include, "", true))
+                {
+                    auto relativePath = std::filesystem::relative(file, include).string();
+                    if (relativePath.back() == '.')
+                        relativePath.pop_back();
+
+                    auto zipPath = (overridesPath / include / relativePath).generic_string();
+                    if (zipPath.back() == '/')
+                        zipPath.pop_back();
+
+                    spdlog::info("Adding {} as {}", file.string(), zipPath);
+                    if (!zip.addFile(zipPath, file.string()))
+                    {
+                        std::filesystem::remove_all(tempPath);
+                        throw std::runtime_error("Failed to add " + file.string());
+                    }
                 }
             }
 

@@ -27,7 +27,7 @@ namespace provisioner::project
         void Load();
         void Save();
         void Compile(const std::filesystem::path& path, bool skipSetup = false) const;
-        void Export(const std::string& type, const std::filesystem::path& path) const;
+        void Export(const std::string& type, const std::filesystem::path& pPath) const;
         void Sync(const std::filesystem::path& path) const;
 
         ProjectData mData;
