@@ -34,7 +34,7 @@ int main(const int argc, char** argv)
 
         curl_global_init(CURL_GLOBAL_DEFAULT);
 
-        CLI::App app{"Provisioner CLI"};
+        CLI::App app{"Provisioner CLI " PROVISIONER_VERSION};
         app.validate_optional_arguments();
         app.validate_positionals();
         argv = app.ensure_utf8(argv);

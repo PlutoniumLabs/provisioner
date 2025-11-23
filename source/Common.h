@@ -9,3 +9,5 @@
 
 #define REGISTER_ALIAS(pAlias, name) \
     command##name->alias(provisioner::utils::ToLower(#pAlias));
+
+#define PROVISIONER_VERSION "1.1.4"
