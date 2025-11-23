@@ -8,10 +8,9 @@ namespace provisioner::commands
     void IncludeCommand::Register(CLI::App* sub)
     {
         const auto opt = std::make_shared<Options>();
-
         sub->add_option("name", opt->name)->required()->allow_extra_args(true);
         sub->add_flag("-r,--remove", opt->remove, "Remove the include instead of adding it");
-        sub->callback([opt]()
+        sub->callback([opt]
         {
             Execute(opt);
         });

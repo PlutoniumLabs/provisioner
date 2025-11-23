@@ -44,4 +44,4 @@ namespace provisioner::platform::modrinth
         };
         return indexFile;
     }
-};
+}

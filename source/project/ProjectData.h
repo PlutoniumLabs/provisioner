@@ -25,4 +25,4 @@ namespace provisioner::project
     };
 
     NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(ProjectData, name, version, minecraft, includes, allowedVersions)
-};
+}

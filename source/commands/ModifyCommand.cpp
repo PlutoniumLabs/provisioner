@@ -1,7 +1,5 @@
 #include "ModifyCommand.h"
 
-#include <complex>
-
 #include "project/Project.h"
 #include "project/mods/Mod.h"
 #include "utils/Prompt.h"
@@ -11,8 +9,7 @@ namespace provisioner::commands
     void ModifyCommand::Register(CLI::App* sub)
     {
         const auto opt = std::make_shared<Options>();
-
-        sub->callback([opt]()
+        sub->callback([opt]
         {
             Execute(opt);
         });

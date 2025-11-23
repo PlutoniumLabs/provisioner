@@ -9,14 +9,13 @@ namespace provisioner::commands
     void ListCommand::Register(CLI::App* sub)
     {
         const auto opt = std::make_shared<Options>();
-
-        sub->callback([opt]()
+        sub->callback([opt]
         {
             Execute(opt);
         });
     }
 
-    void ListCommand::Execute(const std::shared_ptr<Options>& options)
+    void ListCommand::Execute(const std::shared_ptr<Options>&)
     {
         REQUIRE_PROJECT()
 

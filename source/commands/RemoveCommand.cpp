@@ -9,9 +9,8 @@ namespace provisioner::commands
     void RemoveCommand::Register(CLI::App* sub)
     {
         const auto opt = std::make_shared<Options>();
-
         sub->add_option("name", opt->name)->required(true)->allow_extra_args(true);
-        sub->callback([opt]()
+        sub->callback([opt]
         {
             Execute(opt);
         });

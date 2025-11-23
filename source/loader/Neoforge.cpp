@@ -6,7 +6,7 @@
 
 namespace provisioner::loader
 {
-    void Neoforge::Download(const std::filesystem::path& path, bool skipSetup)
+    void Neoforge::Download(const std::filesystem::path& path, const bool skipSetup)
     {
         REQUIRE_PROJECT()
 

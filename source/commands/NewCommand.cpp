@@ -10,11 +10,10 @@ namespace provisioner::commands
     void NewCommand::Register(CLI::App* sub)
     {
         const auto opt = std::make_shared<Options>();
-
         sub->add_option("name", opt->name)->required()->allow_extra_args(true);
         sub->add_flag("-f,--force", opt->force, "Force creation even if the project already exists")->
              default_val(false);
-        sub->callback([opt]()
+        sub->callback([opt]
         {
             Execute(opt);
         });

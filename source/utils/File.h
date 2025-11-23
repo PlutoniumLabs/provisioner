@@ -46,7 +46,7 @@ namespace provisioner::utils
         return true;
     }
 
-    static size_t WriteString(void* contents, size_t size, size_t nmemb, std::string* s)
+    static size_t WriteString(void* contents, const size_t size, const size_t nmemb, std::string* s)
     {
         const size_t newLength = size * nmemb;
         s->append(static_cast<char*>(contents), newLength);
@@ -133,7 +133,7 @@ namespace provisioner::utils
                 else continue;
             }
 
-            if ((entry.path().extension().string().find(filter) != std::string::npos) && !
+            if (entry.path().extension().string().find(filter) != std::string::npos && !
                 std::filesystem::is_directory(entry))
                 files.push_back(entry.path());
         }

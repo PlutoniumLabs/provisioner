@@ -1,6 +1,5 @@
 #include "Project.h"
 
-#include <execution>
 #include <libzippp.h>
 
 #include "loader/Fabric.h"

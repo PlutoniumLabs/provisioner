@@ -9,11 +9,10 @@ namespace provisioner::commands
     void UpdateCommand::Register(CLI::App* sub)
     {
         const auto opt = std::make_shared<Options>();
-
         sub->add_option("name", opt->name)->allow_extra_args(true);
         sub->add_flag("-f,--force", opt->force, "Force update even if the mod is up to date");
         DEFINE_DEFAULT_OPTIONS();
-        sub->callback([opt]()
+        sub->callback([opt]
         {
             Execute(opt);
         });

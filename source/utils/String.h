@@ -8,14 +8,14 @@ namespace provisioner::utils
     inline std::string ToLower(const std::string& str)
     {
         std::string result = str;
-        std::ranges::transform(result, result.begin(), ::tolower);
+        std::ranges::transform(result, result.begin(), tolower);
         return result;
     }
 
     inline std::string ToUpper(const std::string& str)
     {
         std::string result = str;
-        std::ranges::transform(result, result.begin(), ::toupper);
+        std::ranges::transform(result, result.begin(), toupper);
         return result;
     }
 

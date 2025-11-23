@@ -10,7 +10,16 @@ file(GLOB_RECURSE SRC_FILES
         source/*.h,
 )
 
-find_package(CLI11 CONFIG REQUIRED)
+include(FetchContent)
+FetchContent_Declare(
+        cli11_proj
+        QUIET
+        GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
+        GIT_TAG 9b939ae82148a2c57f626f840e07a461f33a016b
+)
+
+FetchContent_MakeAvailable(cli11_proj)
+
 find_package(spdlog CONFIG REQUIRED)
 find_package(CURL CONFIG REQUIRED)
 find_package(libzippp CONFIG REQUIRED)

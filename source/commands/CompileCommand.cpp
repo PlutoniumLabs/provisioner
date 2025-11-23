@@ -8,9 +8,8 @@ namespace provisioner::commands
     void CompileCommand::Register(CLI::App* sub)
     {
         const auto opt = std::make_shared<Options>();
-
         sub->add_flag("-f,--folder", opt->folder, "The folder to compile to");
-        sub->callback([opt]()
+        sub->callback([opt]
         {
             Execute(opt);
         });
