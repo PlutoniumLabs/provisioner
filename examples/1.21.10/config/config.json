@@ -1,0 +1,117 @@
+{
+  "playerOptions": {
+    "4de42b14-d796-3379-aa2e-31f5bdfdd09d": {
+      "enablePvP": false,
+      "nickname": null,
+      "status": "",
+      "acceptedRules": true,
+      "homes": []
+    },
+    "d72d76b0-5050-3d8c-a74a-bd824bfa23b8": {
+      "enablePvP": true,
+      "nickname": null,
+      "status": "",
+      "acceptedRules": false,
+      "homes": []
+    },
+    "380df991-f603-344c-a090-369bad2a924a": {
+      "enablePvP": true,
+      "nickname": "",
+      "status": "",
+      "acceptedRules": true,
+      "homes": [
+        {
+          "name": "ocean",
+          "ownerUUID": "380df991-f603-344c-a090-369bad2a924a",
+          "dimension": {
+            "namespace": "minecraft",
+            "path": "overworld"
+          },
+          "x": -67.7070930775048,
+          "y": 49.0,
+          "z": -392.5201822862416,
+          "yaw": -97.94867,
+          "pitch": 60.899944
+        },
+        {
+          "name": "test1",
+          "ownerUUID": "380df991-f603-344c-a090-369bad2a924a",
+          "dimension": {
+            "namespace": "minecraft",
+            "path": "overworld"
+          },
+          "x": -1516.258158514505,
+          "y": 64.44265472564881,
+          "z": -844.831210518722,
+          "yaw": 102.45438,
+          "pitch": 2.70015
+        },
+        {
+          "name": "test2",
+          "ownerUUID": "380df991-f603-344c-a090-369bad2a924a",
+          "dimension": {
+            "namespace": "minecraft",
+            "path": "overworld"
+          },
+          "x": -1559.8501411808597,
+          "y": 64.0,
+          "z": -867.9873665654161,
+          "yaw": 135.60443,
+          "pitch": 27.900148
+        }
+      ]
+    }
+  },
+  "serverOpenDate": "2025-09-27 15:03:48",
+  "endOpenDate": "2025-11-20 17:03:50",
+  "netherOpenDate": "2025-11-11 17:57:00",
+  "illegalMods": [
+    "cheatbreaker",
+    "impact",
+    "lunar",
+    "meteor",
+    "nebulous",
+    "salhack",
+    "wurst",
+    "future",
+    "aristois",
+    "bape",
+    "xray",
+    "x-ray"
+  ],
+  "allowedMods": [
+    "antixray"
+  ],
+  "motds": [
+    "{randomPlayer} ist schlecht!",
+    "{randomPlayer} is having a great time!",
+    "Watch out for {randomPlayer}!",
+    "{randomPlayer} rules this server!",
+    "Welcome to the server! Say hi to {randomPlayer}!",
+    "Legend says {randomPlayer} never sleeps",
+    "s"
+  ],
+  "offlineMotdPlayerNames": [
+    "Player",
+    "dev",
+    "TESTING"
+  ],
+  "rules": [
+    "{\"text\":\"Rule 1\",\"color\":\"aqua\"}",
+    "{\"text\":\"Rule 2\",\"color\":\"red\"}",
+    "{\"text\":\"Rule 3\",\"color\":\"aqua\"}",
+    "{\"text\":\"Rule 4\",\"color\":\"blue\"}",
+    "[\"\",{\"text\":\"Do you accept these rules?\\n\"},{\"text\":\"[\\u2713]\",\"color\":\"green\",\"click_event\":{\"action\":\"change_page\",\"page\":10000}},{\"text\":\" \",\"color\":\"white\"},{\"text\":\"[\\u2717]\",\"color\":\"red\",\"click_event\":{\"action\":\"change_page\",\"page\":5000}}]"
+  ],
+  "discordRpcConfiguration": {
+    "enabled": true,
+    "applicationId": 1439275936955633724,
+    "details": "In the menu",
+    "state": "Minecraft Klassenserver!",
+    "largeImageKey": "https://minecraft.wiki/images/Minecraft_Education_Google_Play_icon_2.png?5c5ab",
+    "largeImageText": "Hallo Welt!",
+    "smallImageKey": "",
+    "smallImageText": ""
+  },
+  "vanillaMode": true
+}

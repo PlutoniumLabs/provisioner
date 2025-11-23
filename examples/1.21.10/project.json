@@ -1,0 +1,17 @@
+{
+    "allowedVersions": [
+        "1.21.9"
+    ],
+    "includes": [
+        "config",
+        "eula.txt",
+        "server.properties"
+    ],
+    "minecraft": {
+        "loaderVersion": "0.18.1",
+        "type": "fabric",
+        "version": "1.21.10"
+    },
+    "name": "1.21.10 Example",
+    "version": "1.0.0"
+}

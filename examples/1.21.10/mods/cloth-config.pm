@@ -1,0 +1,21 @@
+{
+    "download": {
+        "sha1": "c86e380bdac24e4ecdd148558e9d4ddf32c86059",
+        "sha512": "df1d9e0349dc64fc0859f17b65b67b0d7745a26b4905e87fc148ddebc0285de51a3255848599f0d5ee24f6aab00fbac4849d40bb9052936eaa452d216c7ada62",
+        "size": 1150288,
+        "url": "https://cdn.modrinth.com/data/9s6osm5g/versions/qMxkrrmq/cloth-config-20.0.149-fabric.jar"
+    },
+    "env": {
+        "client": "optional",
+        "server": "optional"
+    },
+    "id": "cloth-config",
+    "name": "Cloth Config API",
+    "platform": "modrinth",
+    "requirements": [],
+    "slug": "cloth-config",
+    "update": {
+        "id": "cloth-config",
+        "version": "qMxkrrmq"
+    }
+}
