@@ -214,7 +214,7 @@ namespace provisioner::project
         }
         if (type == "curseforge")
         {
-            path = path.replace_extension(std::filesystem::path{".zip"});
+            path = path.replace_extension(std::filesystem::path{".curseforge.zip"});
             if (std::filesystem::exists(path))
                 std::filesystem::remove(path);
 
