@@ -1,9 +1,9 @@
 {
     "download": {
-        "sha1": "d768e81f930c9dba397ecc79557fe963177397d2",
-        "sha512": "79a170c0df504197bc7b0e5735fe858f1b6ab6cd2b0f29b8328e7e870edbd08c00f8c202168df47cdb28e4bc05fcd45ee003f1434e217f46110fd6304e7d0921",
-        "size": 575958,
-        "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/8Ing3Dbx/architectury-18.0.6-fabric.jar"
+        "sha1": "6df5474fa07d4c1225ee625ecdd7b958a9f5c2b5",
+        "sha512": "38e8c335f04783242d9ded589b8999b85d37620e22afbdfcbbc231c248c7cef7f210c38d63ac7eb01a68a76243b1ae5bcb0a21918f587f83e6a1941f622f2cb7",
+        "size": 575956,
+        "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/9eRDsZKH/architectury-18.0.8-fabric.jar"
     },
     "env": {
         "client": "required",
@@ -22,6 +22,6 @@
     "slug": "architectury-api",
     "update": {
         "id": "architectury-api",
-        "version": "8Ing3Dbx"
+        "version": "9eRDsZKH"
     }
 }

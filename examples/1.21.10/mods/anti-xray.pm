@@ -1,9 +1,9 @@
 {
     "download": {
-        "sha1": "e098f4e4a2fb4aff81f1b612abffb8311c692bf0",
-        "sha512": "7ee0c66cf6214e8cd17f5dee892a5abf7bf0571bc09b9609cfb4e56b38db2978f6cc6fee1ab27102cba929c8404a7a12857d4d442ab26f8228d30ea856fc57e9",
-        "size": 144756,
-        "url": "https://cdn.modrinth.com/data/sml2FMaA/versions/EHGIPeW9/antixray-fabric-1.4.10%2B1.21.9.jar"
+        "sha1": "13a77e965cd5fef299d328cce6dfe8c9c8214e57",
+        "sha512": "8c1da7c8f81c3ce510e8dae7397884870f99d848e6c7fc4129e6966885aa5f515a0bc100adf2a47f02e3a7c1430056f7bdcfd252f9149ab7a410cbb21310c33a",
+        "size": 142740,
+        "url": "https://cdn.modrinth.com/data/sml2FMaA/versions/ZLcQWfAn/antixray-fabric-1.4.12%2B1.21.10.jar"
     },
     "env": {
         "client": "unsupported",
@@ -16,6 +16,6 @@
     "slug": "anti-xray",
     "update": {
         "id": "anti-xray",
-        "version": "EHGIPeW9"
+        "version": "ZLcQWfAn"
     }
 }

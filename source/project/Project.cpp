@@ -319,6 +319,7 @@ namespace provisioner::project
                               std::filesystem::copy_options::recursive |
                               std::filesystem::copy_options::overwrite_existing);
 
+        std::filesystem::copy(tempPath / "server.jar", path / "server.jar", std::filesystem::copy_options::overwrite_existing);
         spdlog::info("Synced project to {}", path.string());
         std::filesystem::remove_all(tempPath);
     }
