@@ -11,6 +11,7 @@ namespace provisioner::commands
 
         sub->add_option("name", opt->name)->required()->allow_extra_args(true);
         sub->add_option("-v,--version", opt->version, "The version to download")->default_val("latest");
+        sub->add_option("-e,--exact", opt->exact, "Uses the exact string in the query")->default_val(false);
         DEFINE_DEFAULT_OPTIONS();
 
         sub->callback([opt]()
@@ -24,6 +25,6 @@ namespace provisioner::commands
         REQUIRE_PROJECT()
         IMPLEMENT_DEFAULT_OPTIONS();
 
-        project::mods::Mod::Add(options->name, options->version);
+        project::mods::Mod::Add(options->name, options->version, options->exact);
     }
 }

@@ -41,6 +41,14 @@ namespace provisioner::utils
             throw std::runtime_error("curl_easy_perform() failed");
         }
 
+        long http_code = 0;
+        curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
+        if (http_code != 200)
+        {
+            curl_easy_cleanup(curl);
+            throw std::runtime_error("HTTP request failed: " + std::to_string(http_code));
+        }
+
         ofs.close();
         curl_easy_cleanup(curl);
         return true;
@@ -82,7 +90,8 @@ namespace provisioner::utils
         curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
         if (http_code != 200)
         {
-            spdlog::critical("HTTP request failed: {}", http_code);
+            curl_easy_cleanup(curl);
+            throw std::runtime_error("HTTP request failed: " + std::to_string(http_code));
         }
 
         curl_easy_cleanup(curl);

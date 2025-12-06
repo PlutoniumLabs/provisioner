@@ -9,6 +9,7 @@ namespace provisioner::loader
     {
         REQUIRE_PROJECT()
 
+        spdlog::info("Getting latest Fabric installer...");
         const auto latestInstallerVersion = GetLatestInstaller();
         const std::filesystem::path cachePath = ".cache";
         const auto cacheFile = cachePath / ("fabric-" + latestInstallerVersion + ".jar");
@@ -16,6 +17,7 @@ namespace provisioner::loader
         auto loaderVersion = project.mData.minecraft.loaderVersion;
         if (project.mData.minecraft.loaderVersion == "latest")
         {
+            spdlog::info("Getting latest Fabric loader version...");
             loaderVersion = GetLatestLoader();
             project.mData.minecraft.loaderVersion = loaderVersion;
             project.Save();
